@@ -60,15 +60,6 @@ const FlightResults: React.FC = () => {
   return (
     <div className="mt-6 bg-white rounded-lg shadow-md p-4 overflow-x-auto">
       <div className="flex items-center justify-between mb-3">
-        <div className="text-sm bg-gray-600">
-          Results: {query.data?.data?.context?.totalResults ?? 0} * Session:{" "}
-          {query.data?.sessionId.slice(0, 8)}...
-          {query.data?.data.context.status === "incomplete" && (
-            <span className="ml-2 text-xs px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded">
-              Partial
-            </span>
-          )}
-        </div>
         <div className="text-sm text-gray-500">{sp.get('fromSkyId')} - {sp.get("toSkyId")} - {sp.get("date")}</div>
       </div>
 
@@ -136,16 +127,6 @@ const FlightResults: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <div className="mt-3 flex flex-wrap gap-2">
-        {rows[0]?.tags?.map((t, i) => (
-          <span
-            key={i}
-            className="text-xs px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-100"
-          >
-            {t.replaceAll("_", " ")}
-          </span>
-        ))}
-      </div>
     </div>
   );
 };
